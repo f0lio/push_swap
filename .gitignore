@@ -1,0 +1,11 @@
+.vscode*
+*.json
+.DS*
+*.o
+*.out
+output
+input
+src/checker/checker
+src/push_swap/push_swap
+*.sh
+*.py
