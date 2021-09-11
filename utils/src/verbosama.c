@@ -17,7 +17,6 @@ void    print_actions(t_node *actions)
 
 void    print_stacks(t_stack *A, t_stack *B)
 {
-    return ;
     t_node  *a;
     t_node  *b;
     int     a_val;

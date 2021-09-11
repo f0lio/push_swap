@@ -44,24 +44,23 @@ void    sort_five_nodes_stack(t_env *env, t_stack *stack)
 {
     t_stack *src;
     t_stack *dest;
-
+    
     src = stack;
     if (src->name == 'A')
         dest = env->b;
     else
         dest = env->a;
-    if (compare_top_two(src))
-        swap_this_stack(env, src->name);
-    push_minimum(env, src, dest);
-    if (is_sorted(env->a))
-        return push_a(env);
-    push_minimum(env, src, dest);
-    if (is_sorted(src))
+    push_to(env, dest->name);
+    push_to(env, dest->name);
+    if (compare_top_two(dest))
+        rotate_this_stack(env, dest->name);
+    sort_three_nodes_stack(env, src);
+    while (is_sorted(src) == FALSE || stack_isempty(dest) == FALSE)
     {
-        push_to(env, src->name);
-        return push_to(env, src->name);
+        if (dest->len &&
+            void_to_int(get_n_node(dest->stack, 0)->data) <
+            void_to_int(get_n_node(src->stack, 0)->data))
+                    push_to(env, src->name);
+        rotate_this_stack(env, src->name);
     }
-    sort_three_nodes_stack(env, stack);
-    push_to(env, src->name);
-    push_to(env, src->name);
 }

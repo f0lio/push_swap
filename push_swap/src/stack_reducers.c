@@ -7,7 +7,6 @@ void    push_minimum(t_env *env, t_stack *src, t_stack *dest)
     t_node  *iter;
     void    (*action)(t_env*, char);
 
-    reset_min_max(src);
     get_min_max(src);
     index = get_steps(src, src->min);
     if (index == 0)
