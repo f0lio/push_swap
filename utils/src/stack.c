@@ -66,8 +66,8 @@ void     reset_min_max(t_stack *stack)
 {
     if (stack == NULL)
         return ;
-    stack->min = INT8_MAX;
-    stack->max = INT8_MIN;
+    stack->min = INT32_MAX;
+    stack->max = INT32_MIN;
 }
 
 void     get_min_max(t_stack *stack)
@@ -75,6 +75,7 @@ void     get_min_max(t_stack *stack)
     t_node  *iter;
     int     curr;
 
+    reset_min_max(stack);
     iter = stack->stack;
     while (iter)
     {

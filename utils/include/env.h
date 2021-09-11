@@ -6,6 +6,14 @@
 # include "linked_list.h"
 # include "stack.h"
 
+#ifndef INT32_MAX
+# define INT32_MAX 2147483647
+#endif
+
+#ifndef INT32_MIN
+# define INT32_MIN (-INT32_MAX-1)
+#endif
+
 # define    ERR_INVLD_ARG   "All arguments must be intergers!"
 # define    ERR_DUP_NUM     "Numbers must not contain any duplicates"
 # define    ERR_READ        "FAILED AT READING INPUT"
