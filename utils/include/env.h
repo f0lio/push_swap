@@ -40,7 +40,7 @@ void        rev_rotate_a(t_env *env);
 void        rev_rotate_b(t_env *env);
 void        rev_rotate_all(t_env *env);
 
-t_env      *init_env(void);
+t_env       *init_env(void);
 void        read_numbers(t_env *env);
 int         get_number(t_env *env, int i);
 int         str_len(char *str);
@@ -58,9 +58,12 @@ t_bool      array_is_sorted(int *arr, int size);
 
 t_bool      is_digit(char c);
 
-void    fill_stack(t_env *env, t_stack *stack);
-void    free_mem(t_env *env);
-int     *dup_int_arr(int *arr, int size);
+void        update_stack_minmax(t_stack *stack, int num);
+int         stack_top(t_stack *s);
+
+void        fill_stack(t_env *env, t_stack *stack);
+void        free_mem(t_env *env);
+int         *dup_int_arr(int *arr, int size);
 
 /////
 

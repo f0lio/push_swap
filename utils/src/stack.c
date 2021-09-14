@@ -88,3 +88,10 @@ void     get_min_max(t_stack *stack)
     }
 }
 
+void     update_stack_minmax(t_stack *stack, int num)
+{
+    if (num < stack->min)
+        stack->min = num;
+    if (num > stack->max)
+        stack->max = num;
+}

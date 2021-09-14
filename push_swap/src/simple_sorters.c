@@ -44,7 +44,7 @@ void    sort_five_nodes_stack(t_env *env, t_stack *stack)
 {
     t_stack *src;
     t_stack *dest;
-    
+
     src = stack;
     if (src->name == 'A')
         dest = env->b;
@@ -55,12 +55,21 @@ void    sort_five_nodes_stack(t_env *env, t_stack *stack)
     if (compare_top_two(dest))
         rotate_this_stack(env, dest->name);
     sort_three_nodes_stack(env, src);
-    while (is_sorted(src) == FALSE || stack_isempty(dest) == FALSE)
+    
+    while (is_sorted(src) == FALSE || dest->len)
     {
-        if (dest->len &&
-            void_to_int(get_n_node(dest->stack, 0)->data) <
-            void_to_int(get_n_node(src->stack, 0)->data))
-                    push_to(env, src->name);
-        rotate_this_stack(env, src->name);
+        if (dest->len == 0)
+            rotate_this_stack(env, src->name);
+        else if (stack_top(dest) < stack_top(src))
+            push_to(env, src->name);
+        else if (stack_top(src) < stack_top(dest) && compare_top_two(src))
+        {
+            rotate_this_stack(env, src->name);
+            push_to(env, src->name);
+        }
+        else
+            rotate_this_stack(env, src->name);
+        // PRINT_STACKS(2);
     }
+    // PRINT_STACKS(2);
 }

@@ -25,6 +25,7 @@ void  push_b(t_env *env)
   if (a->stack == NULL)
     return ;
   push(b, (int *)a->stack->data);
+  update_stack_minmax(b, void_to_int(a->stack->data));
   pop(a);
   a->len--;
   b->len++;

@@ -164,3 +164,8 @@ int *dup_int_arr(int *arr, int size)
         dup[size] = arr[size];
     return dup;
 }
+
+int     stack_top(t_stack *s)
+{
+    return (void_to_int(s->stack->data));
+}

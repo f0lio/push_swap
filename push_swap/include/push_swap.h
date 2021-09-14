@@ -67,7 +67,6 @@ void        rev_rotate_this_stack(t_env *env, char stack_name);
 t_bool      compare_top_two(t_stack *stack);
 void        filter_a_by_key(t_env *env, int key);
 
-
 void        stack_to_chunks(t_env *env, t_stack *stack);
 
 #endif
