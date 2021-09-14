@@ -33,7 +33,7 @@ t_bool  is_number(char *num)
 {
     int     i;
     t_bool  minus;
-    
+
 
     minus = FALSE;
     i = -1;

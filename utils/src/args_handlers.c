@@ -15,7 +15,7 @@ int	get_number(t_env *env, int i)
 	if (!is_number(env->args[i]))
 		_err(env, ERR_INVLD_ARG);
 	num = atoi(env->args[i]);
-	num_len = nbrlen(num);
+	num_len = nbrlen(num) + (num < 0);
 	arg_len = str_len(env->args[i]);
 	if (num_len != arg_len)
 		_err(env, ERR_INVLD_ARG);
@@ -27,12 +27,9 @@ void	read_numbers(t_env *env)
 	int		i;
 
 	env->nums = (int*)malloc(env->size * sizeof(int));
-	i = 0;
-	while (i < env->size)
-	{
+	i = -1;
+	while (++i < env->size)
 		env->nums[i] = get_number(env, i);
-		i++;
-	}
 }
 
 t_bool	has_duplicates(int *nums, int size)
